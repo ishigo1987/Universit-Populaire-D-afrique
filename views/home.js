@@ -67,23 +67,23 @@ exports.create = () => {
 
     let itemConfig = [{
             title: "Examens et concours",
-            image: "../icons/android/exams_concours.png"
+            image: "icons/android/exams_concours.png"
      },
         {
             title: "Planning de cours",
-            image: "../icons/android/planning_cours.png"
+            image: "icons/android/planning_cours.png"
      },
         {
             title: "Offres d'emploi",
-            image: "../icons/android/search_offer.png"
+            image: "icons/android/search_offer.png"
      },
         {
             title: "Forum",
-            image: "../icons/android/forum_bubbles.png"
+            image: "icons/android/forum_bubbles.png"
      },
         {
             title: "Déconnexion",
-            image: "../../icons/android/disconnection.png"
+            image: "icons/android/disconnection.png"
      }];
 
     let drawerCollectionView = new tabris.CollectionView({

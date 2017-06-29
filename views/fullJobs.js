@@ -1,7 +1,7 @@
 module.exports = (navigationViewToImport, name_jobs, title_jobs, place_jobs, category_jobs, description_jobs, date_jobs) => {
     const themeColor = "#84BD3A";
     let createMenuActionIcon;
-    let handleShareFullJobs = require("../helpers/actionIcons.js")(createMenuActionIcon, "Share", "../icons/android/share_action.png", "high", navigationViewToImport);
+    let handleShareFullJobs = require("../helpers/actionIcons.js")(createMenuActionIcon, "Share", "icons/android/share_action.png", "high", navigationViewToImport);
 
     let fullJobsView = new tabris.Page({
         title: name_jobs,

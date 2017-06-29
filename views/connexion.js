@@ -24,7 +24,7 @@ exports.create = () => {
             top: 20,
         },
         image: {
-            src: "../img/logo.png"
+            src: "img/logo.png"
         },
         scaleMode: "fit"
     }).appendTo(scrollView);
