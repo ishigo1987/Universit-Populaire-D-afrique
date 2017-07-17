@@ -219,7 +219,7 @@ exports.create = () => {
                 localStorage.removeItem("categoryQuery");
             } else if (tabActive === "Quizz") {
                 // Ajax quizz categorie
-                let url = `https://www.upa.ovh/gestionApplication/retrieveQuizzToDb.php?categorie=${localStorage.getItem("categoryQuery")}`;
+                let urlQuizz = `https://www.upa.ovh/gestionApplication/retrieveQuizzToDb.php?categorie=${localStorage.getItem("categoryQuery")}`;
                 require("../modules/ajaxQuizz.js")(tabQuizz, urlQuizz, scrollViewTabQuizz, themeColor, executeNavigationView);
                 localStorage.removeItem("categoryQuery");
             } else {
