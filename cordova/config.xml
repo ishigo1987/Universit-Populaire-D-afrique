@@ -1,21 +1,22 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.company.Upa" version="0.1.0">
-  <name>UPA</name>
-  <description>
-    Application de l&#39;Université Popuplaite d&#39;Afrique
-  </description>
-  <author email="stephnguets@yahoo.fr">
-    Nguetseng Stephane
-  </author>
-<!--
+    <name>UPA</name>
+    <description>
+        Application de l&#39;Université Popuplaite d&#39;Afrique
+    </description>
+    <author email="stephnguets@yahoo.fr">
+        Nguetseng Stephane
+    </author>
+    <!--
   <preference name="AndroidPersistentFileLocation" value="Internal" />
   <preference name="ThemeSplash" value="@style/Theme.Tabris.SplashScreen" />
   <preference name="Theme" value="@style/Theme.Tabris.Light" />
 -->
-  <preference name="UseStrictSSL" value="false" />
-  <plugin name="cordova-plugin-x-socialsharing" spec="5.1.7" />
-  <plugin name="cordova-plugin-pdialog" spec="2.0.1" />
-  <plugin name="cordova-plugin-x-toast" spec="2.6.0" />
-  <plugin name="cordova-plugin-actionsheet" spec="2.3.3" />
-  <plugin name="cordova-plugin-fileopener" spec="1.0.5" />
+    <preference name="UseStrictSSL" value="false" />
+    <preference name="EnableDeveloperConsole" value="$IS_DEBUG" />
+    <plugin name="cordova-plugin-x-socialsharing" spec="5.1.7" />
+    <plugin name="cordova-plugin-pdialog" spec="2.0.1" />
+    <plugin name="cordova-plugin-x-toast" spec="2.6.0" />
+    <plugin name="cordova-plugin-actionsheet" spec="2.3.3" />
+    <plugin name="cordova-plugin-fileopener" spec="1.0.5" />
 </widget>
