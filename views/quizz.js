@@ -4,7 +4,7 @@ module.exports = (quizzId, titlePage, navigationViewToInsert) => {
     const themeColor = "#84BD3A";
     let activityIndicator;
     let createMenuActionIcon;
-    let handleSendQuizz = require("../helpers/actionIcons.js")(handleSendQuizz, "Valider le quizz", "icons/android/check.png", "high", navigationViewToInsert);
+    let handleSendQuizz = require("../helpers/actionIcons.js")(createMenuActionIcon, "Valider le quizz", "icons/android/check.png", "high", navigationViewToInsert);
     let quizzView = new tabris.Page({
         title: `Quizz ${titlePage}`,
         background: `#fafafa`,
