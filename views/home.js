@@ -11,12 +11,12 @@ exports.create = () => {
     });
     let objectUserInformations = JSON.parse(localStorage.getItem("storeUserInfos"));
     let createMenuActionIcon;
-    let handleActionSettings = require("../helpers/actionIcons.js")(createMenuActionIcon, "Reglages", "srcImg", "low", executeNavigationView);
+    //    let handleActionSettings = require("../helpers/actionIcons.js")(createMenuActionIcon, "Reglages", "srcImg", "low", executeNavigationView);
     let handleActionCategorie = require("../helpers/actionIcons.js")(createMenuActionIcon, "Categorie", "srcImg", "low", executeNavigationView);
 
-    handleActionSettings.on("select", function () {
-        console.log("reglages");
-    });
+    //    handleActionSettings.on("select", function () {
+    //        console.log("reglages");
+    //    });
     let drawer = tabris.ui.drawer;
     drawer.enabled = true;
     drawer.background = "#ffffff";
@@ -26,12 +26,12 @@ exports.create = () => {
         background: `#fafafa`,
     }).on({
         appear: () => {
-            handleActionSettings.visible = true;
+            //            handleActionSettings.visible = true;
             handleActionCategorie.visible = true;
             drawer.enabled = true;
         },
         disappear: () => {
-            handleActionSettings.visible = false;
+            //            handleActionSettings.visible = false;
             handleActionCategorie.visible = false;
             drawer.enabled = false;
         }
