@@ -73,8 +73,8 @@ module.exports = (quizzId, titlePage, numberOfQuestions, navigationViewToInsert)
                     }) {
                         if (checked) {
                             numberOfRadioCheck++;
-                            console.log(target.text);
-                            console.log(response[i].correctAnswer);
+                            //                            console.log(target.text);
+                            //                            console.log(response[i].correctAnswer);
                         }
                     }).appendTo(compositeQuestion);
 
@@ -82,6 +82,10 @@ module.exports = (quizzId, titlePage, numberOfQuestions, navigationViewToInsert)
             }
             // Gestion de la validation du quizz lorsqu'on clique sur le bouton d'envoi
             handleSendQuizz.on("select", () => {
+                console.log(numberOfRadioCheck);
+                console.log(typeof (numberOfRadioCheck));
+                console.log(numberOfQuestions);
+                console.log(numberOfQuestions);
                 if (numberOfRadioCheck !== numberOfQuestions) {
                     window.plugins.toast.showShortBottom("Veuillez répondre a toutes les questions du quizz");
                 } else {
