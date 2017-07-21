@@ -1,4 +1,4 @@
-module.exports = (quizzId, titlePage, navigationViewToInsert) => {
+module.exports = (quizzId, titlePage, numberOfQuestions, navigationViewToInsert) => {
     "use strict";
     // On lance une requete ajax de recuperation de quizz et on lance la gestion du quizz
     const themeColor = "#84BD3A";
@@ -40,6 +40,7 @@ module.exports = (quizzId, titlePage, navigationViewToInsert) => {
         });
         xhrDisplayQuizz.addEventListener("load", () => {
             activityIndicator.visible = false;
+            let numberOfRadioCheck = 0;
             let response = JSON.parse(xhrDisplayQuizz.responseText);
             let j = response.length;
             for (let i = 0; i < j; i++) {
@@ -71,6 +72,7 @@ module.exports = (quizzId, titlePage, navigationViewToInsert) => {
                         value: checked
                     }) {
                         if (checked) {
+                            numberOfRadioCheck++;
                             console.log(target.text);
                             console.log(response[i].correctAnswer);
                         }
@@ -78,6 +80,14 @@ module.exports = (quizzId, titlePage, navigationViewToInsert) => {
 
                 });
             }
+            // Gestion de la validation du quizz lorsqu'on clique sur le bouton d'envoi
+            handleSendQuizz.on("select", () => {
+                if (numberOfRadioCheck !== numberOfQuestions) {
+                    window.plugins.toast.showShortBottom("Veuillez répondre a toutes les questions du quizz");
+                } else {
+
+                }
+            });
 
         });
         xhrDisplayQuizz.addEventListener("error", () => {

@@ -80,7 +80,7 @@ module.exports = (tabPart, urlToSend, areaToInsert, themeColorText, navigationVi
                 index
             }) => {
                 let indexItem = itemQuizz[index];
-                let quizzView = require("../views/quizz.js")(indexItem.id_quizz, indexItem.categorie, navigationViewToInsert);
+                let quizzView = require("../views/quizz.js")(indexItem.id_quizz, indexItem.categorie, objectData.nombre_questions, navigationViewToInsert);
                 quizzView.appendTo(navigationViewToInsert);
             }).appendTo(areaToInsert);
         });
