@@ -1,7 +1,6 @@
 module.exports = (tabPart, urlToSend, areaToInsert, themeColorText, navigationViewToInsert) => {
     function AjaxQuizzJson() {
         let activityIndicator;
-        let entireQuestionsQuizz;
         let xhrAjaxQuizz = new XMLHttpRequest();
         xhrAjaxQuizz.addEventListener("loadstart", () => {
             activityIndicator = new tabris.ActivityIndicator({
@@ -76,13 +75,12 @@ module.exports = (tabPart, urlToSend, areaToInsert, themeColorText, navigationVi
                     let page = itemQuizz[index];
                     view.find("#textViewCategorie").set("text", page.categorie);
                     view.find("#textViewNombreQuestions").set("text", `Ce quizz comporte ${page.nombre_questions} questions`);
-                    entireQuestionsQuizz = Number(page.nombre_questions);
                 }
             }).on("select", ({
                 index
             }) => {
                 let indexItem = itemQuizz[index];
-                let quizzView = require("../views/quizz.js")(indexItem.id_quizz, indexItem.categorie, entireQuestionsQuizz, navigationViewToInsert);
+                let quizzView = require("../views/quizz.js")(indexItem.id_quizz, indexItem.categorie, Number(indexItem.nombre_questions), navigationViewToInsert);
                 quizzView.appendTo(navigationViewToInsert);
             }).appendTo(areaToInsert);
         });
