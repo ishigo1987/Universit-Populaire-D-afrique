@@ -4,7 +4,7 @@ module.exports = (quizzId, titlePage, numberOfQuestions, navigationViewToInsert)
     const themeColor = "#84BD3A";
     let activityIndicator;
     let createMenuActionIcon;
-    let handleSendQuizz = require("../helpers/actionIcons.js")(createMenuActionIcon, "Valider le quizz", "icons/android/check.png", "high", navigationViewToInsert);
+    let handleSendQuizz = require("../helpers/actionIcons.js")(createMenuActionIcon, "", "icons/android/check.png", "high", navigationViewToInsert);
     let quizzView = new tabris.Page({
         title: `Quizz ${titlePage}`,
         background: `#fafafa`,
@@ -40,6 +40,8 @@ module.exports = (quizzId, titlePage, numberOfQuestions, navigationViewToInsert)
         });
         xhrDisplayQuizz.addEventListener("load", () => {
             activityIndicator.visible = false;
+            let objectCollectData;
+            let arrayGoodAnswer = [];
             let numberOfRadioCheck = 0;
             let response = JSON.parse(xhrDisplayQuizz.responseText);
             let j = response.length;
@@ -75,6 +77,12 @@ module.exports = (quizzId, titlePage, numberOfQuestions, navigationViewToInsert)
                             numberOfRadioCheck++;
                             // console.log(target.text);
                             // console.log(response[i].correctAnswer);
+                            objectCollectData = {
+                                textUserSelect: target.text,
+                                correctAnswer: response[i].correctAnswer
+                            };
+                            
+                            arrayGoodAnswer.push(objectCollectData);
                         }
                     }).appendTo(compositeQuestion);
 
@@ -82,14 +90,32 @@ module.exports = (quizzId, titlePage, numberOfQuestions, navigationViewToInsert)
             }
             // Gestion de la validation du quizz lorsqu'on clique sur le bouton d'envoi
             handleSendQuizz.on("select", () => {
-                console.log(numberOfRadioCheck);
-                console.log(typeof(numberOfRadioCheck));
-                console.log(numberOfQuestions);
-                console.log(typeof(numberOfQuestions));
                 if (numberOfRadioCheck !== numberOfQuestions) {
                     window.plugins.toast.showShortBottom("Veuillez répondre a toutes les questions du quizz");
                 } else {
-
+                  const j = arrayGoodAnswer.length;
+                  let numberOfQuestionsFounded = 0;
+                  for(let i=0; i<j; i++)
+                   {
+                     if(arrayGoodAnswer[i].textUserSelect === arrayGoodAnswer[i].correctAnswer)
+                      {
+                          numberOfQuestionsFounded++;
+                      }
+                   } 
+                  if(numberOfQuestionsFounded === numberOfQuestions)
+                   {
+                       function execCancelButton()
+                        {
+                            require("./home.js");
+                        }
+                       require("../custom_widgets/alertDialog.js")(`Felicitations`,`Vous avez trouvé toutes les questions du quizz`,null,`Fermer`,null,execCancelButton);
+                   }else{
+                       function execShowResults()
+                        {
+                            
+                        }
+                       require("../custom_widgets/alertDialog.js")(`Desolé`,`Vous n'avez pas trouvé toutes les questions`,null,`Voir le resultat`,null,execShowResults);
+                   }
                 }
             });
 
