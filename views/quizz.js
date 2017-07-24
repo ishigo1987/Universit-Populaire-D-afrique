@@ -76,7 +76,6 @@ module.exports = (quizzId, titlePage, numberOfQuestions, navigationViewToInsert)
             }
             // Gestion de la validation du quizz lorsqu'on clique sur le bouton d'envoi
             handleSendQuizz.on("select", () => {
-                  console.log(arrayGoodAnswer);
                   let arraySelectResponse = [];
                   let radioCollection = quizzView.find(".radioButtonQuizz");
                   const k = radioCollection.length;
@@ -87,16 +86,16 @@ module.exports = (quizzId, titlePage, numberOfQuestions, navigationViewToInsert)
                             arraySelectResponse.push(radioCollection[i].text);
                         }
                    }
-                  console.log(arraySelectResponse);
                   if(JSON.stringify(arraySelectResponse) === JSON.stringify(arrayGoodAnswer))
                    {
                        function execCancelButton(){
+                           console.log("test");
                          while(k--)
                           {
                               radioCollection[i].checked = false;
                           }
                        }
-                       require("../custom_widgets/alertDialog.js")(`Felicitations`,`Vous avez trouvé toutes les questions du quizz`,'',`Fermer`,'',execCancelButton);
+                       require("../custom_widgets/alertDialog.js")(`Felicitations`,`Vous avez trouvé toutes les questions du quizz`,'',`Fermer`,null,execCancelButton);
                    }else{
                        function execShowResults()
                         {

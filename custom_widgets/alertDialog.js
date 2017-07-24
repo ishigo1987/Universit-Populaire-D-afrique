@@ -8,7 +8,7 @@ module.exports = (titleAlertDialog,messageAlertDialog,buttonOkText,buttonCancelT
       'cancel': buttonCancelText
      }
     }).on({
-       closeOk: () => callBackOkButton,
-       closeCancel: () => callBackCancelButton
+       closeOk:callBackOkButton,
+       closeCancel:callBackCancelButton
      }).open();
  };
