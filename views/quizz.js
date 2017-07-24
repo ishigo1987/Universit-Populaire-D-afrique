@@ -91,7 +91,7 @@ module.exports = (quizzId, titlePage, numberOfQuestions, navigationViewToInsert)
                        function execCancelButton(){
                          while(k--)
                           {
-                              radioCollection[i].checked = false;
+                              radioCollection[k].checked = false;
                           }
                        }
                        require("../custom_widgets/alertDialog.js")(`Felicitations`,`Vous avez trouvé toutes les questions du quizz`,'',`Fermer`,null,execCancelButton);
