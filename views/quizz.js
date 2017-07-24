@@ -40,7 +40,6 @@ module.exports = (quizzId, titlePage, numberOfQuestions, navigationViewToInsert)
         });
         xhrDisplayQuizz.addEventListener("load", () => {
             activityIndicator.visible = false;
-            let objectCollectData;
             let arrayGoodAnswer = [];
             let response = JSON.parse(xhrDisplayQuizz.responseText);
             let j = response.length;
@@ -52,7 +51,9 @@ module.exports = (quizzId, titlePage, numberOfQuestions, navigationViewToInsert)
                     background: "#fff",
                     elevation: 2,
                 }).appendTo(scrollView);
-
+                
+                arrayGoodAnswer.push[response[i].correctAnswer];
+                
                 let questions = new tabris.TextView({
                     left: 15,
                     right: 15,
@@ -67,34 +68,32 @@ module.exports = (quizzId, titlePage, numberOfQuestions, navigationViewToInsert)
                         right: 15,
                         top: 'prev() 10',
                         text: title,
-                        textColor: "#9e9e9e"
-                    }).on('checkedChanged', function ({target,value: checked}) {
-                        if (checked) {
-                            objectCollectData = {
-                                textUserSelect: target.text,
-                                correctAnswer: response[i].correctAnswer
-                            };
-                            
-                            arrayGoodAnswer.push(objectCollectData);
-                        }
+                        textColor: "#9e9e9e",
+                        class:"radioButtonQuizz"
                     }).appendTo(compositeQuestion);
 
                 });
             }
             // Gestion de la validation du quizz lorsqu'on clique sur le bouton d'envoi
             handleSendQuizz.on("select", () => {
-                  const j = arrayGoodAnswer.length;
-                  let numberOfQuestionsFounded = 0;
-                  for(let i=0; i<j; i++)
+                  let arraySelectResponse = [];
+                  let radioCollection = quizzView.find(".radioButtonQuizz");
+                  const k = radioCollection.length;
+                  for(let i=0; i<k; i++)
                    {
-                     if(arrayGoodAnswer[i].textUserSelect === arrayGoodAnswer[i].correctAnswer)
-                      {
-                          numberOfQuestionsFounded++;
-                      }
-                   } 
-                  if(numberOfQuestionsFounded === numberOfQuestions)
+                       if(radioCollection[i].checked)
+                        {
+                            arraySelectResponse.push(radioCollection[i].text);
+                        }
+                   }
+                  if(JSON.stringify(arraySelectResponse) === JSON.stringify(arrayGoodAnswer))
                    {
-                       function execCancelButton(){require("./home.js");}
+                       function execCancelButton(){
+                         while(k--)
+                          {
+                              radioCollection[i].checked = false;
+                          }
+                       }
                        require("../custom_widgets/alertDialog.js")(`Felicitations`,`Vous avez trouvé toutes les questions du quizz`,'',`Fermer`,'',execCancelButton);
                    }else{
                        function execShowResults()
