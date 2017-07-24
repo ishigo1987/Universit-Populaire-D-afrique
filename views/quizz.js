@@ -104,10 +104,7 @@ module.exports = (quizzId, titlePage, numberOfQuestions, navigationViewToInsert)
                    } 
                   if(numberOfQuestionsFounded === numberOfQuestions)
                    {
-                       function execCancelButton()
-                        {
-                            require("./home.js");
-                        }
+                       function execCancelButton(){require("./home.js");}
                        require("../custom_widgets/alertDialog.js")(`Felicitations`,`Vous avez trouvé toutes les questions du quizz`,null,`Fermer`,null,execCancelButton);
                    }else{
                        function execShowResults()
