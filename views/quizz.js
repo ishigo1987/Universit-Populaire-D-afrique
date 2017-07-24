@@ -52,7 +52,7 @@ module.exports = (quizzId, titlePage, numberOfQuestions, navigationViewToInsert)
                     elevation: 2,
                 }).appendTo(scrollView);
                 
-                arrayGoodAnswer.push[response[i].correctAnswer];
+                arrayGoodAnswer.push(response[i].correctAnswer);
                 
                 let questions = new tabris.TextView({
                     left: 15,
