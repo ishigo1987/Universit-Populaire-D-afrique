@@ -50,7 +50,7 @@ module.exports = (idQuizzResult,titlePageResult,navigationViewToInsert) =>
                     text: response[i].question,
                     font: " 20px roboto noto",
                     id:"quizzQuestions"
-                }).appendTo(scrollView);
+                }).appendTo(compositeQuestion);
                 
                 let responses = new tabris.TextView({
                     left: 15,
@@ -59,7 +59,7 @@ module.exports = (idQuizzResult,titlePageResult,navigationViewToInsert) =>
                     textColor:themeColor,
                     font: "18px roboto noto",
                     text:response[i].correctAnswer
-                }).appendTo(scrollView);
+                }).appendTo(compositeQuestion);
             }
          });
         xhrDisplayResultsQuizz.addEventListener("error", () =>
