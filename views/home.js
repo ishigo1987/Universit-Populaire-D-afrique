@@ -65,10 +65,11 @@ exports.create = () => {
 
     // Creation de la collectionView du drawer 
 
-    let itemConfig = [{
-            title: "Examens et concours",
-            image: "icons/android/exams_concours.png"
-     },
+    let itemConfig = [
+//     {
+//            title: "Examens et concours",
+//            image: "icons/android/exams_concours.png"
+//     },
         {
             title: "Planning de cours",
             image: "icons/android/planning_cours.png"

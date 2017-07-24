@@ -35,6 +35,13 @@ module.exports = (idQuizzResult,titlePageResult,navigationViewToInsert) =>
             let response = JSON.parse(xhrDisplayResultsQuizz.responseText);
             let j = response.length;
             for (let i = 0; i < j; i++) {
+                let compositeQuestion = new tabris.Composite({
+                    left: 0,
+                    right: 0,
+                    top: i === 0 ? 0 : ["prev()", 10],
+                    background: "#fff",
+                    elevation: 2,
+                }).appendTo(scrollView);
                 
                 let questions = new tabris.TextView({
                     left: 15,
