@@ -78,7 +78,7 @@ module.exports = (quizzId, titlePage, numberOfQuestions, navigationViewToInsert)
             handleSendQuizz.on("select", () => {
                   let arraySelectResponse = [];
                   let radioCollection = quizzView.find(".radioButtonQuizz");
-                  const k = radioCollection.length;
+                  let k = radioCollection.length;
                   for(let i=0; i<k; i++)
                    {
                        if(radioCollection[i].checked)
@@ -89,7 +89,6 @@ module.exports = (quizzId, titlePage, numberOfQuestions, navigationViewToInsert)
                   if(JSON.stringify(arraySelectResponse) === JSON.stringify(arrayGoodAnswer))
                    {
                        function execCancelButton(){
-                           console.log("test");
                          while(k--)
                           {
                               radioCollection[i].checked = false;
@@ -99,9 +98,10 @@ module.exports = (quizzId, titlePage, numberOfQuestions, navigationViewToInsert)
                    }else{
                        function execShowResults()
                         {
-                            
+                          let quizzViewResults = require("./resultsQuizz.js")(quizzId, titlePage,navigationViewToInsert);
+                              quizzViewResults.appendTo(navigationViewToInsert);
                         }
-                       require("../custom_widgets/alertDialog.js")(`Desolé`,`Vous n'avez pas trouvé toutes les questions`,'',`Voir le resultat`,'',execShowResults);
+                       require("../custom_widgets/alertDialog.js")(`Desolé`,`Vous n'avez pas trouvé toutes les questions`,'',`Voir le resultat`,null,execShowResults);
                    }
             });
 
