@@ -42,7 +42,6 @@ module.exports = (quizzId, titlePage, numberOfQuestions, navigationViewToInsert)
             activityIndicator.visible = false;
             let objectCollectData;
             let arrayGoodAnswer = [];
-            let numberOfRadioCheck = 0;
             let response = JSON.parse(xhrDisplayQuizz.responseText);
             let j = response.length;
             for (let i = 0; i < j; i++) {
@@ -69,14 +68,8 @@ module.exports = (quizzId, titlePage, numberOfQuestions, navigationViewToInsert)
                         top: 'prev() 10',
                         text: title,
                         textColor: "#9e9e9e"
-                    }).on('checkedChanged', function ({
-                        target,
-                        value: checked
-                    }) {
+                    }).on('checkedChanged', function ({target,value: checked}) {
                         if (checked) {
-                            numberOfRadioCheck++;
-                            // console.log(target.text);
-                            // console.log(response[i].correctAnswer);
                             objectCollectData = {
                                 textUserSelect: target.text,
                                 correctAnswer: response[i].correctAnswer
@@ -90,9 +83,6 @@ module.exports = (quizzId, titlePage, numberOfQuestions, navigationViewToInsert)
             }
             // Gestion de la validation du quizz lorsqu'on clique sur le bouton d'envoi
             handleSendQuizz.on("select", () => {
-                if (numberOfRadioCheck !== numberOfQuestions) {
-                    window.plugins.toast.showShortBottom("Veuillez répondre a toutes les questions du quizz");
-                } else {
                   const j = arrayGoodAnswer.length;
                   let numberOfQuestionsFounded = 0;
                   for(let i=0; i<j; i++)
@@ -105,15 +95,14 @@ module.exports = (quizzId, titlePage, numberOfQuestions, navigationViewToInsert)
                   if(numberOfQuestionsFounded === numberOfQuestions)
                    {
                        function execCancelButton(){require("./home.js");}
-                       require("../custom_widgets/alertDialog.js")(`Felicitations`,`Vous avez trouvé toutes les questions du quizz`,null,`Fermer`,null,execCancelButton);
+                       require("../custom_widgets/alertDialog.js")(`Felicitations`,`Vous avez trouvé toutes les questions du quizz`,'',`Fermer`,'',execCancelButton);
                    }else{
                        function execShowResults()
                         {
                             
                         }
-                       require("../custom_widgets/alertDialog.js")(`Desolé`,`Vous n'avez pas trouvé toutes les questions`,null,`Voir le resultat`,null,execShowResults);
+                       require("../custom_widgets/alertDialog.js")(`Desolé`,`Vous n'avez pas trouvé toutes les questions`,'',`Voir le resultat`,'',execShowResults);
                    }
-                }
             });
 
         });
