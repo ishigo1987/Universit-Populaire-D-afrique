@@ -66,10 +66,10 @@ exports.create = () => {
     // Creation de la collectionView du drawer 
 
     let itemConfig = [
-//     {
-//            title: "Examens et concours",
-//            image: "icons/android/exams_concours.png"
-//     },
+        {
+            title: "Examens et concours",
+            image: "icons/android/exams_concours.png"
+     },
         {
             title: "Planning de cours",
             image: "icons/android/planning_cours.png"
@@ -78,10 +78,10 @@ exports.create = () => {
             title: "Offres d'emploi",
             image: "icons/android/search_offer.png"
      },
-        {
-            title: "Forum",
-            image: "icons/android/forum_bubbles.png"
-     },
+//        {
+        //            title: "Forum",
+        //            image: "icons/android/forum_bubbles.png"
+        //     },
         {
             title: "Déconnexion",
             image: "icons/android/disconnection.png"
@@ -145,6 +145,9 @@ exports.create = () => {
             jobsView.appendTo(executeNavigationView);
         } else if (itemIndex.title === "Planning de cours") {
             require("../modules/downloadPlanning.js")();
+        } else if (itemIndex.title === "Examens et concours") {
+            let examAndConcoursView = require("./examsAndConcours.js")(executeNavigationView);
+            examAndConcoursView.appendTo(executeNavigationView);
         }
     }).appendTo(drawer);
 
