@@ -4,9 +4,9 @@ module.exports = (navigationViewToInsert) => {
     let urlToSend;
     let activityIndicator;
     let createMenuActionIcon;
-    let handleConcours = require("../helpers/actionIcons.js")(createMenuActionIcon, "Concours", "srcImg", "low", navigationViewToImport);
-    let handleExamens = require("../helpers/actionIcons.js")(createMenuActionIcon, "Examen", "srcImg", "low", navigationViewToImport);
-    let handleAll = require("../helpers/actionIcons.js")(createMenuActionIcon, "Tout afficher", "srcImg", "low", navigationViewToImport);
+    let handleConcours = require("../helpers/actionIcons.js")(createMenuActionIcon, "Concours", "srcImg", "low", navigationViewToInsert);
+    let handleExamens = require("../helpers/actionIcons.js")(createMenuActionIcon, "Examen", "srcImg", "low", navigationViewToInsert);
+    let handleAll = require("../helpers/actionIcons.js")(createMenuActionIcon, "Tout afficher", "srcImg", "low", navigationViewToInsert);
 
     let examsAndConcoursView = new tabris.Page({
         title: `Examens et Concours`,
