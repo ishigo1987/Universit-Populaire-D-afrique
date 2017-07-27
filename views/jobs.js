@@ -182,6 +182,6 @@ module.exports = (navigationViewToImport) => {
 
     setTimeout(() => {
         execRetrieveJobsToDb = new RetrieveJobsToDb();
-    }, 1750);
+    }, 1250);
     return jobsView;
 };
