@@ -20,12 +20,12 @@
     <plugin name="cordova-plugin-actionsheet" spec="2.3.3" />
     <plugin name="cordova-plugin-fileopener" spec="1.0.5" />
     <platform name="android">
-        <icon src="res/android/ldpi.png" density="ldpi" />
-        <icon src="res/android/mdpi.png" density="mdpi" />
-        <icon src="res/android/hdpi.png" density="hdpi" />
-        <icon src="res/android/xhdpi.png" density="xhdpi" />
-        <icon src="res/android/xxhdpi.png" density="xxhdpi" />
-        <icon src="res/android/xxxhdpi.png" density="xxxhdpi" />
+        <icon src="res/android/ldpi.jpg" density="ldpi" />
+        <icon src="res/android/mdpi.jpg" density="mdpi" />
+        <icon src="res/android/hdpi.jpg" density="hdpi" />
+        <icon src="res/android/xhdpi.jpg" density="xhdpi" />
+        <icon src="res/android/xxhdpi.jpg" density="xxhdpi" />
+        <icon src="res/android/xxxhdpi.jpg" density="xxxhdpi" />
     </platform>
 
 </widget>
