@@ -51,9 +51,9 @@ module.exports = (quizzId, titlePage, numberOfQuestions, navigationViewToInsert)
                     background: "#fff",
                     elevation: 2,
                 }).appendTo(scrollView);
-                
+
                 arrayGoodAnswer.push(response[i].correctAnswer);
-                
+
                 let questions = new tabris.TextView({
                     left: 15,
                     right: 15,
@@ -69,40 +69,35 @@ module.exports = (quizzId, titlePage, numberOfQuestions, navigationViewToInsert)
                         top: 'prev() 10',
                         text: title,
                         textColor: "#9e9e9e",
-                        class:"radioButtonQuizz"
+                        class: "radioButtonQuizz"
                     }).appendTo(compositeQuestion);
 
                 });
             }
             // Gestion de la validation du quizz lorsqu'on clique sur le bouton d'envoi
             handleSendQuizz.on("select", () => {
-                  let arraySelectResponse = [];
-                  let radioCollection = quizzView.find(".radioButtonQuizz");
-                  let k = radioCollection.length;
-                  for(let i=0; i<k; i++)
-                   {
-                       if(radioCollection[i].checked)
-                        {
-                            arraySelectResponse.push(radioCollection[i].text);
+                let arraySelectResponse = [];
+                let radioCollection = quizzView.find(".radioButtonQuizz");
+                let k = radioCollection.length;
+                for (let i = 0; i < k; i++) {
+                    if (radioCollection[i].checked) {
+                        arraySelectResponse.push(radioCollection[i].text);
+                    }
+                }
+                if (JSON.stringify(arraySelectResponse) === JSON.stringify(arrayGoodAnswer)) {
+                    function execCancelButton() {
+                        while (k--) {
+                            radioCollection[k].checked = false;
                         }
-                   }
-                  if(JSON.stringify(arraySelectResponse) === JSON.stringify(arrayGoodAnswer))
-                   {
-                       function execCancelButton(){
-                         while(k--)
-                          {
-                              radioCollection[k].checked = false;
-                          }
-                       }
-                       require("../custom_widgets/alertDialog.js")(`Felicitations`,`Vous avez trouvé toutes les questions du quizz`,'',`Fermer`,null,execCancelButton);
-                   }else{
-                       function execShowResults()
-                        {
-                          let quizzViewResults = require("./resultsQuizz.js")(quizzId, titlePage,navigationViewToInsert);
-                              quizzViewResults.appendTo(navigationViewToInsert);
-                        }
-                       require("../custom_widgets/alertDialog.js")(`Desolé`,`Vous n'avez pas trouvé toutes les questions`,'',`Voir le resultat`,null,execShowResults);
-                   }
+                    }
+                    require("../custom_widgets/alertDialog.js")(`Felicitations`, `Vous avez trouvé toutes les ${numberOfQuestions} questions du quizz. Votre score est de 100%`, '', `Fermer`, null, execCancelButton);
+                } else {
+                    function execShowResults() {
+                        let quizzViewResults = require("./resultsQuizz.js")(quizzId, titlePage, navigationViewToInsert);
+                        quizzViewResults.appendTo(navigationViewToInsert);
+                    }
+                    require("../custom_widgets/alertDialog.js")(`Desolé`, `Vous n'avez pas trouvé toutes les questions`, '', `Voir le resultat`, null, execShowResults);
+                }
             });
 
         });
