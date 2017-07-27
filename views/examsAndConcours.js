@@ -245,10 +245,7 @@ module.exports = (navigationViewToInsert) => {
         xhrRetrieveExamsAndConcours.responseType = "text";
         xhrRetrieveExamsAndConcours.open('GET', urlToSend, true);
         xhrRetrieveExamsAndConcours.send(null);
-
-        retrieveExamsAndConcoursToDb();
-
     }
-
+    retrieveExamsAndConcoursToDb();
     return examsAndConcoursView;
 };
