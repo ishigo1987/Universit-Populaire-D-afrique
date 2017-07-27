@@ -246,6 +246,6 @@ module.exports = (navigationViewToInsert) => {
         xhrRetrieveExamsAndConcours.open('GET', urlToSend, true);
         xhrRetrieveExamsAndConcours.send(null);
     }
-    retrieveExamsAndConcoursToDb();
+    setTimeout(retrieveExamsAndConcoursToDb, 1750);
     return examsAndConcoursView;
 };

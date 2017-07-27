@@ -179,7 +179,9 @@ module.exports = (navigationViewToImport) => {
         xhrRetrieveJobs.open('GET', urlToSend, true);
         xhrRetrieveJobs.send(null);
     }
-    execRetrieveJobsToDb = new RetrieveJobsToDb();
 
+    setTimeout(() => {
+        execRetrieveJobsToDb = new RetrieveJobsToDb();
+    }, 1750);
     return jobsView;
 };
