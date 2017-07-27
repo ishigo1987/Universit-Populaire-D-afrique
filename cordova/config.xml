@@ -13,19 +13,19 @@
   <preference name="Theme" value="@style/Theme.Tabris.Light" />
 -->
     <preference name="UseStrictSSL" value="false" />
-    <!--    <preference name="EnableDeveloperConsole" value="$IS_DEBUG" />-->
+    <preference name="EnableDeveloperConsole" value="$IS_DEBUG" />
     <plugin name="cordova-plugin-x-socialsharing" spec="5.1.7" />
     <plugin name="cordova-plugin-pdialog" spec="2.0.1" />
     <plugin name="cordova-plugin-x-toast" spec="2.6.0" />
     <plugin name="cordova-plugin-actionsheet" spec="2.3.3" />
     <plugin name="cordova-plugin-fileopener" spec="1.0.5" />
     <platform name="android">
-        <icon src="res/android/ldpi.jpg" density="ldpi" />
-        <icon src="res/android/mdpi.jpg" density="mdpi" />
-        <icon src="res/android/hdpi.jpg" density="hdpi" />
-        <icon src="res/android/xhdpi.jpg" density="xhdpi" />
-        <icon src="res/android/xxhdpi.jpg" density="xxhdpi" />
-        <icon src="res/android/xxxhdpi.jpg" density="xxxhdpi" />
+        <icon src="res/android/ldpi.png" density="ldpi" />
+        <icon src="res/android/mdpi.png" density="mdpi" />
+        <icon src="res/android/hdpi.png" density="hdpi" />
+        <icon src="res/android/xhdpi.png" density="xhdpi" />
+        <icon src="res/android/xxhdpi.png" density="xxhdpi" />
+        <icon src="res/android/xxxhdpi.png" density="xxxhdpi" />
     </platform>
 
 </widget>
