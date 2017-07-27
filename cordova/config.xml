@@ -19,14 +19,14 @@
     <plugin name="cordova-plugin-x-toast" spec="2.6.0" />
     <plugin name="cordova-plugin-actionsheet" spec="2.3.3" />
     <plugin name="cordova-plugin-fileopener" spec="1.0.5" />
-    <!--
-<platform name="android">
-    <icon src="../img/logo.png" platform="android" width="36" height="36" density="ldpi" />
-    <icon src="../img/logo.png" platform="android" width="48" height="48" density="mdpi" />
-    <icon src="../img/logo.png" platform="android" width="72" height="72" density="hdpi" />
-    <icon src="../img/logo.png" platform="android" width="96" height="96" density="xhdpi" />
-    <icon src="../img/logo.png" platform="android" width="144" height="144" density="xxhdpi" />
-    <icon src="../img/logo.png" platform="android" width="192" height="192" density="xxxhdpi" />
-</platform>
--->
+
+    <platform name="android">
+        <icon src="res/img/logo.png" platform="android" width="36" height="36" density="ldpi" />
+        <icon src="res/img/logo.png" platform="android" width="48" height="48" density="mdpi" />
+        <icon src="res/img/logo.png" platform="android" width="72" height="72" density="hdpi" />
+        <icon src="res/img/logo.png" platform="android" width="96" height="96" density="xhdpi" />
+        <icon src="res/img/logo.png" platform="android" width="144" height="144" density="xxhdpi" />
+        <icon src="res/img/logo.png" platform="android" width="192" height="192" density="xxxhdpi" />
+    </platform>
+
 </widget>
