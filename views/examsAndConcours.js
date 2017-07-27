@@ -247,6 +247,8 @@ module.exports = (navigationViewToInsert) => {
         xhrRetrieveExamsAndConcours.send(null);
 
         retrieveExamsAndConcoursToDb();
-        return examsAndConcoursView;
+
     }
+
+    return examsAndConcoursView;
 };
