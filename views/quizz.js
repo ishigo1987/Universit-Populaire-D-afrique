@@ -104,7 +104,12 @@ module.exports = (quizzId, titlePage, numberOfQuestions, navigationViewToInsert)
                         let quizzViewResults = require("./resultsQuizz.js")(quizzId, titlePage, navigationViewToInsert);
                         quizzViewResults.appendTo(navigationViewToInsert);
                     }
-                    require("../custom_widgets/alertDialog.js")(`Desolé`, `Vous n'avez trouvé que ${numberOfFoundedQuestions} questions sur ${numberOfQuestions}`, '', `Voir le resultat`, null, execShowResults);
+                    if (numberOfFoundedQuestions === 0) {
+                        require("../custom_widgets/alertDialog.js")(`Desolé`, `Vous n'avez trouvé aucune questions`, '', `Voir le resultat`, null, execShowResults);
+                    } else {
+                        require("../custom_widgets/alertDialog.js")(`Desolé`, `Vous n'avez trouvé que ${numberOfFoundedQuestions} question(s) sur ${numberOfQuestions}`, '', `Voir le resultat`, null, execShowResults);
+                    }
+
                 }
             });
 
