@@ -92,11 +92,19 @@ module.exports = (quizzId, titlePage, numberOfQuestions, navigationViewToInsert)
                     }
                     require("../custom_widgets/alertDialog.js")(`Felicitations`, `Vous avez trouvé toutes les ${numberOfQuestions} questions du quizz. Votre score est de 100%`, '', `Fermer`, null, execCancelButton);
                 } else {
+                    let numberOfFoundedQuestions = 0;
+                    let l = arraySelectResponse.length;
+                    while (l--) {
+                        if (arrayGoodAnswer.includes(arraySelectResponse[l]) === true) {
+                            numberOfFoundedQuestions++;
+                        }
+                    }
+
                     function execShowResults() {
                         let quizzViewResults = require("./resultsQuizz.js")(quizzId, titlePage, navigationViewToInsert);
                         quizzViewResults.appendTo(navigationViewToInsert);
                     }
-                    require("../custom_widgets/alertDialog.js")(`Desolé`, `Vous n'avez pas trouvé toutes les questions`, '', `Voir le resultat`, null, execShowResults);
+                    require("../custom_widgets/alertDialog.js")(`Desolé`, `Vous n'avez trouvé que ${numberOfFoundedQuestions} questions sur ${numberOfQuestions}`, '', `Voir le resultat`, null, execShowResults);
                 }
             });
 
