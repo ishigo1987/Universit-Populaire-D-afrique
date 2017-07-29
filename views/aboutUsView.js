@@ -47,19 +47,19 @@ module.exports = () => {
         Adresse
         <strong>BP: 12256 Yaoundé
         Email: contact @education.cm
-        site: www.education.cm</strong>
+        site: www.education.cm</strong><br/>
 
         Situation: <strong>Le premier immeuble à droite,
-            à 100 mètres après Pont Emana(zone d 'OKOLO Nord)</strong>
+            à 100 mètres après Pont Emana(zone d 'OKOLO Nord)</strong><br/>
 
                 Direction Générale <strong>Tel: 690718116 / 674933118</strong>
 
-                Service de Renseignement <strong>Tel: 696029686 / 670110905</strong>`
+                Service de Renseignement <strong>Tel: 696029686 / 670110905</strong><br/>`
 
     let aboutUsText = new tabris.TextView({
         markupEnabled: true,
         left: 15,
-        top: ["prev()", 50],
+        top: ["prev()", 20],
         right: 15,
         text: markupText,
         font: "18px roboto, noto",
