@@ -83,6 +83,10 @@ exports.create = () => {
         //            image: "icons/android/forum_bubbles.png"
         //     },
         {
+            title: "A propos de nous",
+            image: "icons/android/about_us.png"
+        },
+        {
             title: "Déconnexion",
             image: "icons/android/disconnection.png"
      }];
@@ -148,6 +152,9 @@ exports.create = () => {
         } else if (itemIndex.title === "Examens et concours") {
             let examAndConcoursView = require("./examsAndConcours.js")(executeNavigationView);
             examAndConcoursView.appendTo(executeNavigationView);
+        } else if (itemIndex.title === "A propos de nous") {
+            let aboutUsView = require("./aboutUsView.js")();
+            aboutUsView.appendTo(executeNavigationView);
         }
     }).appendTo(drawer);
 
