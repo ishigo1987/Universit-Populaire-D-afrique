@@ -46,8 +46,8 @@ module.exports = () => {
         appliquer en se frottant aux réalités du terrain.<br/><br/>
         <strong>Adresse</strong>
         BP: <strong>12256 Yaoundé</strong><br/>
-        Email: <a>contact@education.cm</a><br/>
-        site: <a>www.education.cm</strong></a><br/><br/>
+        Email: <a href="contact@education.cm">contact@education.cm</a><br/>
+        site: <a href="www.education.cm">www.education.cm</strong></a><br/><br/>
         Situation: <strong>Le premier immeuble à droite,à 100 mètres après Pont Emana(zone d 'OKOLO Nord).</strong><br/><br/>
         <strong>Direction Générale</strong><br/>Tel: <strong>690718116 / 674933118</strong><br/><br/>
         <strong>Service de Renseignement </strong><br/>Tel:<strong> 696029686 / 670110905</strong><br/>`;
