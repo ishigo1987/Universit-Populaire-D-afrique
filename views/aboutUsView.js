@@ -44,7 +44,7 @@ module.exports = () => {
         - <strong>Solidworks et bien d 'autres</strong><br/>
         UPA est également en partenariat avec plusieurs Entreprises et Sociétés professionnelles privées camerounaises permettant aux jeunes qu 'ils forment de mieux s'
         appliquer en se frottant aux réalités du terrain.<br/><br/>
-        <strong>Adresse</strong>
+        <strong>Adresse</strong><br/>
         BP: <strong>12256 Yaoundé</strong><br/>
         Email: <a href="contact@education.cm">contact@education.cm</a><br/>
         site: <a href="www.education.cm">www.education.cm</strong></a><br/><br/>
@@ -54,6 +54,7 @@ module.exports = () => {
 
     let aboutUsText = new tabris.TextView({
         markupEnabled: true,
+        selectable: true,
         left: 15,
         top: ["prev()", 10],
         right: 15,
