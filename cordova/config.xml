@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.company.Upa" version="0.1.0">
+<widget id="com.company.Upa" version="0.1.1" android-versionCode="101">
     <name>UPA</name>
     <description>
         Application de l&#39;Université Popuplaire d&#39;Afrique
