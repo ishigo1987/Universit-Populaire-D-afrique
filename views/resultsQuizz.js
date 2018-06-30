@@ -1,6 +1,6 @@
 module.exports = (idQuizzResult,titlePageResult,navigationViewToInsert) =>
  {
-    "use strict"; 
+    "use strict";
     const themeColor = "#84BD3A";
     let activityIndicator;
     let quizzViewResults = new tabris.Page({
@@ -8,16 +8,16 @@ module.exports = (idQuizzResult,titlePageResult,navigationViewToInsert) =>
         background: `#fafafa`,
         elevation: 2
     });
-    
+
      let scrollView = new tabris.ScrollView({
         left: 0,
         right: 0,
         top: 0,
         bottom: 0
     }).appendTo(quizzViewResults);
-    
+
     let urlToSend = `https://www.upa.ovh/gestionApplication/retrieveCompleteQuizzToDbById.php?id_quizz=${idQuizzResult}`;
-    
+
     function retrieveQuizzResultToDb()
      {
          let xhrDisplayResultsQuizz = new XMLHttpRequest();
@@ -33,7 +33,8 @@ module.exports = (idQuizzResult,titlePageResult,navigationViewToInsert) =>
          {
             activityIndicator.visible = false;
             let response = JSON.parse(xhrDisplayResultsQuizz.responseText);
-            let j = response.length;
+            const quizzResponse = JSON.parse(response.quizz);
+            let j = quizzResponse.length;
             for (let i = 0; i < j; i++) {
                 let compositeQuestion = new tabris.Composite({
                     left: 0,
@@ -42,23 +43,23 @@ module.exports = (idQuizzResult,titlePageResult,navigationViewToInsert) =>
                     background: "#fff",
                     elevation: 2,
                 }).appendTo(scrollView);
-                
+
                 let questions = new tabris.TextView({
                     left: 15,
                     right: 15,
                     top: 10,
-                    text: response[i].question,
+                    text: quizzResponse[i].question,
                     font: " 20px roboto noto",
                     id:"quizzQuestions"
                 }).appendTo(compositeQuestion);
-                
+
                 let responses = new tabris.TextView({
                     left: 15,
                     right: 15,
                     top:["#quizzQuestions", 5],
                     textColor:themeColor,
                     font: "18px roboto noto",
-                    text:response[i].correctAnswer
+                    text:quizzResponse[i].correctAnswer
                 }).appendTo(compositeQuestion);
             }
          });
